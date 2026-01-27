@@ -1,0 +1,4 @@
+Utilizei o if - else para fazer a lógica de um programa de notas para validar se o aluno está bem ou precisa se esforçar mais nos estudo.
+utilizei o try para fechar o scanner, assim como usei para tratar erros que pode acontecer em um programa.
+O uso de || e && para deixar em intervalos e perceber se ultrapassou o programa foi importante para entender como utiliza los melhores, tive erro na validação da tabela de classificação quando usei o || em vez do &&
+Então aprendi que o || não é bom para intervalos fechados e nunca usar para isso pois sempre vai ser verdadeiro .

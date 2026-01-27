@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class CalculadoraSimples{
     public static void main(String[] args){
         try(Scanner sc = new Scanner(System.in)){
-            double numero1;
-            double numero2;
+            double numero1 = 0;
+            double numero2 = 0;
             try{
                 System.out.println("Digite o primeiro número: ");
                 numero1 = Double.parseDouble(sc.nextLine());
 
-                System.out.println("Digite o segundo núemro diferente de zero: ");
+                System.out.println("Digite o segundo número diferente de zero: ");
                 numero2 = Double.parseDouble(sc.nextLine());
 
                 double soma = numero1 + numero2;
@@ -27,8 +27,6 @@ public class CalculadoraSimples{
                     resto = numero1 % numero2;
                 } else {
                     divisaoRestoValida = false;
-                    divisao = 0;
-                    resto = 0;
                 }
             
                 System.out.println("=== RESULTADO ===");
