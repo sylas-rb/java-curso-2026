@@ -45,17 +45,17 @@ public class SistemaNotas{
     public static String tabelaClassificacao(double notas){
         String conceito = "";
         String mencoesEspeciais = "";
-        if (notas >= 0.0 && notas <= 3.9) {
+        if (notas >= 0.0 && notas < 4.0) {
             conceito = "D - Insuficiente";
-            if (notas ==  0) {
+            if (notas ==  0.0) {
                 mencoesEspeciais = "Precisa de ajuda urgente!";
             }
-        }else if (notas >= 4.0 && notas <= 4.9) {
+        }else if (notas >= 4.0 && notas < 5.0) {
             conceito = "D - Insuficiente";
             mencoesEspeciais = "Recuperação possível";
-        }else if (notas >= 5.0 && notas <= 6.9) {
+        }else if (notas >= 5.0 && notas < 7.0) {
             conceito = "C - Regular";
-        }else if (notas >= 7.0 && notas <= 8.9) {
+        }else if (notas >= 7.0 && notas < 9.0) {
             conceito = "B - Bom";
         }else if (notas >= 9.0 && notas <= 10.0) {
             conceito = "A - Excelente";
@@ -73,7 +73,7 @@ public class SistemaNotas{
     }
     public static void imprimirNotas(double notas, String classificacao){
         System.out.println("=== SISTEMA DE NOTAS ===");
-        System.out.println("Nota: " + notas);
+        System.out.printf("Nota: %.2f%n", notas);
         System.out.println(classificacao);
         System.out.println("------------------------");
     }
