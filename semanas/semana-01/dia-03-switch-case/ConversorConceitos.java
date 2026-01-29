@@ -11,8 +11,18 @@ OBJETIVO: ESTRUTURA DE DECISÃO AVANÇADAS E MANIPULAÇÃO DE TEXTO
 public class ConversorConceitos {
     public static void main(String[] args){
         try(Scanner sc = new Scanner(System.in)) {
+            char letra;
+            char simbolo;
             String letraSimbolo = entradaUsuario(sc);
-            System.out.println(letraSimbolo);
+            if (letraSimbolo.charAt(0).matches("[a-dA-D]")) {
+                letra = letraSimbolo.charAt(0);
+                simbolo = letraSimbolo.charAt(1);
+            } else {
+                letra = letraSimbolo.charAt(1);
+                simbolo = letraSimbolo.charAt(0);
+            }
+            System.out.println(letra);
+            System.out.println(simbolo);
         }
         
     }
@@ -29,7 +39,7 @@ public class ConversorConceitos {
                 continue;
             }
             if (entrada.length() > 2) {
-                System.out.println("A entrada so pode ser um caracter, por favor digite novamente a letra.");
+                System.out.println("A entrada so pode ser uma letra e/ou um simbolo de mais ou menos, por favor digite novamente a letra.");
                 continue;
             }
             if (!entrada.matches("[a-dA-d][-+]?")) {
