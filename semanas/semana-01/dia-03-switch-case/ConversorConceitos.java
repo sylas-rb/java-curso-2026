@@ -11,16 +11,18 @@ OBJETIVO: ESTRUTURA DE DECISÃO AVANÇADAS E MANIPULAÇÃO DE TEXTO
 public class ConversorConceitos {
     public static void main(String[] args){
         try(Scanner sc = new Scanner(System.in)) {
-            char letra = entradaUsuario(sc);
+            String letraSimbolo = entradaUsuario(sc);
+            System.out.println(letraSimbolo);
         }
         
     }
 
-    public static char entradaUsuario(Scanner sc) {
+    public static String entradaUsuario(Scanner sc) {
         while(true) {
-            System.out.println("Informe a letra que o usuário tirou: ");
+            System.out.println("Informe a letra que o usuário tirou (A a D): ");
             
-            string entrada = sc.nextLine().trim();
+            String entrada = sc.nextLine().trim();
+
 
             if (entrada.isEmpty()) {
                 System.out.println("A entrada não pode ser vazia, por favor informe a letra.");
@@ -30,6 +32,11 @@ public class ConversorConceitos {
                 System.out.println("A entrada so pode ser um caracter, por favor digite novamente a letra.");
                 continue;
             }
+            if (!entrada.matches("[a-dA-d][-+]?")) {
+                System.out.println("A letra está fora do parâmetro pedido, por favor digite entre A a D.");
+                continue;
+            }
+            return entrada;
         }
     }
 }
