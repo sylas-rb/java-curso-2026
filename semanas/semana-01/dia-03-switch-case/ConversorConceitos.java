@@ -14,15 +14,12 @@ public class ConversorConceitos {
             char letra;
             char simbolo;
             String letraSimbolo = entradaUsuario(sc);
-            if (letraSimbolo.charAt(0).matches("[a-dA-D]")) {
+            if (letraSimbolo.length() >  1){
                 letra = letraSimbolo.charAt(0);
                 simbolo = letraSimbolo.charAt(1);
             } else {
-                letra = letraSimbolo.charAt(1);
-                simbolo = letraSimbolo.charAt(0);
+                letra = letraSimbolo.charAt(0);
             }
-            System.out.println(letra);
-            System.out.println(simbolo);
         }
         
     }
