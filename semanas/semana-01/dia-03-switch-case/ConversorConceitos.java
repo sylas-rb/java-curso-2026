@@ -13,13 +13,21 @@ public class ConversorConceitos {
         try(Scanner sc = new Scanner(System.in)) {
             char letra;
             char simbolo;
+            double resultado;
+            double variacao;
+
+
             String letraSimbolo = entradaUsuario(sc);
             if (letraSimbolo.length() >  1){
-                letra = letraSimbolo.charAt(0);
+                letra = letraSimbolo.toUpperCase().charAt(0);
                 simbolo = letraSimbolo.charAt(1);
+                resultado = conversorTabela(letra);
+                imprimirValores(resultado, simbolo);
             } else {
-                letra = letraSimbolo.charAt(0);
+                letra = letraSimbolo.toUpperCase().charAt(0);
             }
+            resultado = conversorTabela(letra);
+            imprimirValores(resultado, '');
         }
         
     }
@@ -44,6 +52,32 @@ public class ConversorConceitos {
                 continue;
             }
             return entrada;
+        }
+    }
+    public static double conversorTabela(char letra){
+        double pontos = 0;
+
+        switch (letra) {
+            case 'A':
+                pontos = 4.0;
+                break;
+            case 'B':
+                pontos = 3.0;
+                break;
+            case 'C':
+                pontos = 2.0;
+                break;
+            case 'D':
+                pontos = 1.0;
+                break;
+            default:
+                System.out.println("ERRO: conceito inválido. Use A, B, C ou D.");
+        }
+        return pontos;
+    }
+    public static void imprimirValores(double resultado, char simbolo){
+
+        if (simbolo == '+') {}
         }
     }
 }
