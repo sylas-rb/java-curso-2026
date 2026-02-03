@@ -13,28 +13,32 @@ public class ConversorConceitos {
         try(Scanner sc = new Scanner(System.in)) {
             char letra;
             char simbolo;
-            double resultado;
-            double variacao;
+            double valor = 0;
+            double valorFinal = 0;
 
-
+            
+            System.out.println("=== CONVERSOR DE CONCEITOS ===");
             String letraSimbolo = entradaUsuario(sc);
             if (letraSimbolo.length() >  1){
                 letra = letraSimbolo.toUpperCase().charAt(0);
                 simbolo = letraSimbolo.charAt(1);
-                resultado = conversorTabela(letra);
-                imprimirValores(resultado, simbolo);
+                valor = conversorTabela(letra);
+                valorFinal = verificandoValor(valor, simbolo);
             } else {
                 letra = letraSimbolo.toUpperCase().charAt(0);
+                simbolo = 'O';
             }
-            resultado = conversorTabela(letra);
-            imprimirValores(resultado, '');
+            valor = conversorTabela(letra);
+            valorFinal = verificandoValor(valor, simbolo);
+
+            System.out.printf("conceito: %c - %.1f pontos%n", letra, valorFinal);
         }
         
     }
 
     public static String entradaUsuario(Scanner sc) {
         while(true) {
-            System.out.println("Informe a letra que o usuário tirou (A a D): ");
+            System.out.print("Digite o conceito (A, B, C, D): ");
             
             String entrada = sc.nextLine().trim();
 
@@ -47,7 +51,7 @@ public class ConversorConceitos {
                 System.out.println("A entrada so pode ser uma letra e/ou um simbolo de mais ou menos, por favor digite novamente a letra.");
                 continue;
             }
-            if (!entrada.matches("[a-dA-d][-+]?")) {
+            if (!entrada.matches("[a-dA-D][-+]?")) {
                 System.out.println("A letra está fora do parâmetro pedido, por favor digite entre A a D.");
                 continue;
             }
@@ -75,9 +79,22 @@ public class ConversorConceitos {
         }
         return pontos;
     }
-    public static void imprimirValores(double resultado, char simbolo){
+    public static double verificandoValor(double valor, char simbolo){
+        double valorFinal = 0;
 
-        if (simbolo == '+') {}
+        switch (simbolo) {
+            case '+':
+                valorFinal = valor + 0.3;
+                break;
+            case '-':
+                valorFinal = valor - 0.3;
+                break;
+            case 'O':
+                valorFinal = valor;
+                break;
+            default:
+                System.out.println("ERRO: não foi possível verificar o simbolo. Use o '-' ou '+'.");
         }
+        return valorFinal;
     }
 }
